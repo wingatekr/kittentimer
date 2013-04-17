@@ -1,0 +1,23 @@
+/*** site.com Print Styles ********************************/
+
+body {
+	font-size:12pt;
+	color:#000;
+	background:#FFF;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;  
+	line-height: 1.5;
+}
+
+#wrapper {
+	background:#FFF;
+}
+
+a:link, a:visited {
+	text-decoration:underline;
+}
+
+a:link:after,
+a:visited:after {
+  content: " (" attr(href) ") ";
+  font-size: 90%;
+}
