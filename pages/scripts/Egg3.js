@@ -75,22 +75,22 @@ var Egg = {
         secText = "";
 
         if (Time.remainingYears > 0) {
-            clockTime.push(padTimeText(Time.remainingYears));
+            clockTime.push(padTimeText(Time.remainingYears) + "y");
             yearText = getTimeText(Time.remainingYears, "year");
         }
 
         if (Time.remainingMonths > 0) {
-            clockTime.push(padTimeText(Time.remainingMonths));
+            clockTime.push(padTimeText(Time.remainingMonths) + "m");
             monthText = getTimeText(Time.remainingMonths, "month");
         }
 
-        if (Time.remainingDays> 0) {
-            clockTime.push(padTimeText(Time.remainingDays));
+        if (Time.remainingDays > 0) {
+            clockTime.push(padTimeText(Time.remainingDays) + "d");
             dayText = getTimeText(Time.remainingDays, "day");
         }
 
         if (Time.remainingHours > 0) {
-            clockTime.push(padTimeText(Time.remainingHours));
+            clockTime.push(padTimeText(Time.remainingHours) + "h");
             hourText = getTimeText(Time.remainingHours, "hour");
         }
 
