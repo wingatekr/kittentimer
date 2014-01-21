@@ -2,6 +2,7 @@
 
 $soundType = isset($_COOKIE["soundType"]) ? $_COOKIE["soundType"] : "beep";
 $soundVolume = isset($_COOKIE["soundVolume"]) ? $_COOKIE["soundVolume"] : "1";
+$alertBox = isset($_COOKIE["alertBox"]) ? $_COOKIE["alertBox"] : "true";
 
 ?>
 
@@ -101,6 +102,11 @@ $soundVolume = isset($_COOKIE["soundVolume"]) ? $_COOKIE["soundVolume"] : "1";
             <li><input type="radio" name="soundVolume" value="1" <?php echo ($soundVolume === "1") ? "checked" : "" ?> /> Full</li>
             <li><input type="radio" name="soundVolume" value="0.5" <?php echo ($soundVolume === "0.5") ? "checked" : "" ?> /> Half</li>
             <li><input type="radio" name="soundVolume" value="0" <?php echo ($soundVolume === "0") ? "checked" : "" ?> /> None</li>
+         </ul>
+         <h4>Alert Box: (system dialog pop-up)</h4>
+         <ul>
+            <li><input type="radio" name="alertBox" value="true" <?php echo ($alertBox === "true") ? "checked" : "" ?> /> On</li>
+            <li><input type="radio" name="alertBox" value="false" <?php echo ($alertBox === "false") ? "checked" : "" ?> /> Off</li>
          </ul>
       </form>
       <a href="javascript:void(0);" class="simplemodal-close" style="padding: 5px; background-color: #DDDDDD; border: 1px solid #888888;"><b>Apply</b></a>
