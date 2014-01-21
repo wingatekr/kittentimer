@@ -44,7 +44,7 @@ var Egg = {
         Egg.totalTime = Egg.endTime - Egg.startTime;
         Egg.endDate = new Date(new Date().getTime() + Egg.totalTime);
         Egg.currDate = new Date();
-        Egg.expiredMessage = "Time Expired: " + label;
+        Egg.expiredMessage = "Time Expired" + (label ? ":" : "") + label;
         Egg.update();
         if (!Egg.ticker) {
             Egg.ticker = setInterval(Egg.update, 1000 / 4);
