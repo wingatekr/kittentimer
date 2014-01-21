@@ -18,11 +18,16 @@ if ($endTime == -1000){
 
 $soundType = "beep";
 $soundVolume = "1";
+$alertBox = "true";
 if (isset($_COOKIE["soundType"])) {
    $soundType = $_COOKIE["soundType"];
 }
 if (isset($_COOKIE["soundVolume"])) {
    $soundVolume = $_COOKIE["soundVolume"];
+}
+
+if (isset($_COOKIE["alertBox"])) {
+   $alertBox = $_COOKIE["alertBox"];
 }
 ?>
 <!doctype html>
@@ -82,6 +87,7 @@ if (isset($_COOKIE["soundVolume"])) {
          Egg.endTime = <?php echo $endTime; ?>;
          Egg.parseError = "<?php echo $error; ?>";
          Egg.volume = <?php echo $soundVolume; ?>;
+         Egg.canAlert = <?php echo $alertBox; ?>;
       </script>
    </body>
 </html>

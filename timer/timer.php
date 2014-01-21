@@ -14,6 +14,7 @@ $startTime = time();
 $endTime = strtotime($ztime);
 $soundType = "beep";
 $soundVolume = "1";
+$alertBox = "true";
 
 if ($endTime == -1)
 {
@@ -34,6 +35,9 @@ if (isset($_COOKIE["soundType"])) {
 if (isset($_COOKIE["soundVolume"])) {
    $soundVolume = $_COOKIE["soundVolume"];
 }
+if (isset($_COOKIE["alertBox"])) {
+   $alertBox = $_COOKIE["alertBox"];
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
@@ -42,6 +46,7 @@ if (isset($_COOKIE["soundVolume"])) {
    <!-- <?php print_r(localtime()); ?> -->
    <!-- <?php echo $_COOKIE["soundType"]; ?> -->
    <!-- <?php echo $_COOKIE["soundVolume"]; ?> -->
+   <!-- <?php echo $_COOKIE["alertBox"]; ?> -->
    <head>
       <title>Timer - E.ggTimer.com</title>
 
