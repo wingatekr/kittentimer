@@ -20,6 +20,7 @@ var Egg = {
     startButton:null,
     volume:1,
     sequence : [],
+    canAlert : true,
     start:function () {
         if (Egg.parseError !== "" && Egg.parseError !== "none") {
             Egg.progressText.html(Egg.defaultText);
@@ -155,7 +156,9 @@ var Egg = {
         }
     },
     showAlert:function () {
-        alert(Egg.expiredMessage);
+        if (Egg.canAlert) {
+            alert(Egg.expiredMessage);
+        }
     }
 };
 
