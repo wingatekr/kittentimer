@@ -28,6 +28,9 @@ RewriteRule ^scripts/(.+)?$ /pages/scripts/$1
 RewriteRule ^styles/(.+)?$ /pages/styles/$1
 RewriteRule ^images/(.+)?$ /pages/images/$1
 
+#Oembed
+RewriteRule ^oembed/?$ /oembed/oembed.php
+
 #Timers
 RewriteRule ^m/([^/\.]+)/until/(.+)/?$ /timer/htmlTimer3.php?t=$1&l=$2
 RewriteRule ^m/([^/\.]+)/?$ /timer/htmlTimer3.php?t=$1

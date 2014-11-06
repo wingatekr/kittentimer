@@ -35,13 +35,6 @@ if (isset($_COOKIE["alertBox"])) {
    <head>
       <title>Timer - E.ggTimer</title>
       
-      <script type="text/javascript">
-         if(window.top == window.self && !window.location.href.match(/\/m\//i) && navigator.userAgent.match(/msie/i)) {
-               var labelMod = ("<?php echo $label; ?>" !== "") ? "/until/<?php echo $label; ?>" : "";
-               window.location.href = 'http://e.ggtimer.com/ie/' + "<?php echo $origTime; ?>" + labelMod;
-         }
-      </script>
-      
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
       <meta name="Description" content="E.ggTimer.com is a simple, easy-to-use online countdown timer." />
       <meta name="keywords" content="countdown, count, down, egg timer, timer, productivity, time, online countdown, online timer" />
@@ -50,10 +43,12 @@ if (isset($_COOKIE["alertBox"])) {
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
       <meta name="title" content="<? echo ($label == "") ? "Timer - E.ggTimer" : $label; ?>" />
-      
+
+      <link rel="alternate" type="application/json+oembed" href="http://e.ggtimer.com/oembed?format=json&url=<?php echo urlencode("http://e.ggtimer.com" . $_SERVER['REQUEST_URI']); ?>" title="Timer - E.ggTimer" />
+      <link rel="alternate" type="application/xml+oembed" href="http://e.ggtimer.com/oembed?format=xml&url=<?php echo urlencode("http://e.ggtimer.com" . $_SERVER['REQUEST_URI']); ?>" title="Timer - E.ggTimer" />
       <link rel="search" href="/pages/opensearch.xml" type="application/opensearchdescription+xml" title="EggTimer" />
       <link rel="stylesheet" href="/styles/timer.css" type="text/css" media="screen" title="Normal"/>
-	   <link rel="shortcut icon" href="/images/favicon.ico" />
+	  <link rel="shortcut icon" href="/images/favicon.ico" />
       <link rel="apple-touch-icon" href="/images/apple-touch-icon.png"/> 
    </head>
    <body>
