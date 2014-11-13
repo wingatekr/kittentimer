@@ -11,7 +11,7 @@ $data = array(
     'url' => $url,
     'provider_name' => 'E.ggTimer',
     'provider_url' => 'http://e.ggtimer.com',
-    'html'=> '<iframe width="100%" height="100%" src="' . $url . '" frameborder="0" allowfullscreen allowtransparency></iframe>'
+    'html'=> '<iframe width="475" height="300" src="' . $url . '" frameborder="0" allowfullscreen allowtransparency></iframe>'
 );
 
 
