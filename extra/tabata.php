@@ -61,22 +61,22 @@ if (isset($_COOKIE["alertBox"])) {
     Egg.defaultText = "Tabata";
     Egg.expiredMessage = "Workout Complete";
     Egg.sequence = [
-        {label:"Push it!', duration: 20},
-        {label:"Rest!', duration: 10},
-        {label:"Push it!', duration: 20},
-        {label:"Rest!', duration: 10},
-        {label:"Push it!', duration: 20},
-        {label:"Rest!', duration: 10},
-        {label:"Push it!', duration: 20},
-        {label:"Rest!', duration: 10},
-        {label:"Push it!', duration: 20},
-        {label:"Rest!', duration: 10},
-        {label:"Push it!', duration: 20},
-        {label:"Rest!', duration: 10},
-        {label:"Push it!', duration: 20},
-        {label:"Rest!', duration: 10},
-        {label:"Push it!', duration: 20},
-        {label:"Rest!', duration: 10}
+        {label:'Push it!', duration: 20},
+        {label:'Rest!', duration: 10},
+        {label:'Push it!', duration: 20},
+        {label:'Rest!', duration: 10},
+        {label:'Push it!', duration: 20},
+        {label:'Rest!', duration: 10},
+        {label:'Push it!', duration: 20},
+        {label:'Rest!', duration: 10},
+        {label:'Push it!', duration: 20},
+        {label:'Rest!', duration: 10},
+        {label:'Push it!', duration: 20},
+        {label:'Rest!', duration: 10},
+        {label:'Push it!', duration: 20},
+        {label:'Rest!', duration: 10},
+        {label:'Push it!', duration: 20},
+        {label:'Rest!', duration: 10}
     ];
     Egg.volume = <?php echo $soundVolume; ?>;
     Egg.canAlert = <?php echo $alertBox; ?>;

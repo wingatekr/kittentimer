@@ -77,7 +77,6 @@ if (isset($_COOKIE["alertBox"])) {
          Egg.defaultText = "E.ggtimer";
          Egg.title = "<? echo $label; ?>";
          Egg.label = "<? echo $label; ?>";
-         Egg.expiredMessage = "time expired";
          Egg.startTime = <?php echo $startTime; ?>;
          Egg.endTime = <?php echo $endTime; ?>;
          Egg.parseError = "<?php echo $error; ?>";
