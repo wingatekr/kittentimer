@@ -1,108 +1,86 @@
 <?php
-$error = "none";
 
-$sequence = "Push it!:20," .
-            "Rest:10,".
-            "Push it!:20," .
-            "Rest:10,".
-            "Push it!:20,". 
-            "Rest:10,".
-            "Push it!:20," .
-            "Rest:10,".
-            "Push it!:20," .
-            "Rest:10,".
-            "Push it!:20," .
-            "Rest:10,".
-            "Push it!:20," .
-            "Rest:10,".
-            "Push it!:20," .
-            "Rest:10";
+$soundType = "beep";
+$soundVolume = "1";
+$alertBox = "true";
+if (isset($_COOKIE["soundType"])) {
+   $soundType = $_COOKIE["soundType"];
+}
+if (isset($_COOKIE["soundVolume"])) {
+   $soundVolume = $_COOKIE["soundVolume"];
+}
 
+if (isset($_COOKIE["alertBox"])) {
+   $alertBox = $_COOKIE["alertBox"];
+}
 ?>
+<!doctype html>
+<html> <!-- manifest="/egg404.manifest" -->
+<head>
+    <title>Timer - E.ggTimer</title>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="Description" content="E.ggTimer.com is a simple, easy-to-use online countdown timer." />
+    <meta name="keywords" content="countdown, count, down, egg timer, timer, productivity, time, online countdown, online timer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta name="mobileoptimized" content="0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="title" content="Timer - Pomodoro" />
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    <link rel="alternate" type="application/json+oembed" href="http://e.ggtimer.com/oembed?format=json&url=<?php echo urlencode("http://e.ggtimer.com" . $_SERVER['REQUEST_URI']); ?>" title="Timer - E.ggTimer" />
+    <link rel="alternate" type="application/xml+oembed" href="http://e.ggtimer.com/oembed?format=xml&url=<?php echo urlencode("http://e.ggtimer.com" . $_SERVER['REQUEST_URI']); ?>" title="Timer - E.ggTimer" />
+    <link rel="search" href="/pages/opensearch.xml" type="application/opensearchdescription+xml" title="EggTimer" />
+    <link rel="stylesheet" href="/styles/timer.css" type="text/css" media="screen" title="Normal"/>
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png"/>
+</head>
+<body>
+<div id="wrapper">
+    <div id="progress"></div>
+    <div id="static"></div>
+</div>
+<div id="textWrapper">
+    <h2 id="progressText"></h2>
+</div>
 
-   <!-- <?php echo date("Y-m-d-H-i-s", $startTime); ?> -->
+<audio id="beepbeep" style="display:none;" preload="auto" autobuffer>
+    <?php if ($soundType === "ring") : ?>
+    <source src="/styles/ringring.mp3" type="audio/mpeg" />
+    <source src="/styles/ringring.ogg" type="audio/ogg" />
+    <?php else: ?>
+    <source src="/styles/beepbeep.mp3" type="audio/mpeg" />
+    <source src="/styles/beepbeep.ogg" type="audio/ogg" />
+    <?php endif; ?>
+</audio>
 
-   <!-- <?php echo date("Y-m-d-H-i-s", $endTime); ?> -->
-   <!-- <?php print_r(localtime()); ?> -->
-   <head>
-
-      <title>Timer - E.ggTimer.com</title>
-
-      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-      <link rel="icon" type="image/ico" href="http://www.lemieuxster.com/favicon.ico" />
-      <script type="text/javascript" src="/timer/swfobject.js"></script>
-
-      <style type="text/css">
-
-         /* hide from ie on mac \*/
-
-      	html {
-
-      		height: 100%;
-
-      		overflow: hidden;
-
-      	}
-
-      	
-
-      	#eggtimer {
-
-      		height: 100%;
-
-      	}
-
-      	/* end hide */
-
-
-
-      	body {
-
-      		height: 100%;
-
-      		margin: 0;
-
-      		padding: 0;
-
-      	}
-
-      </style>
-
-   </head>
-
-   <body>
-
-      <div id="eggtimer">
-
-         A morning warm-up routine. Get Flash and join in! To see the timer you need Adobe Flash Player.
-
-         <a href="http://www.adobe.com/go/getflashplayer">
-
-            <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" />
-
-         </a>
-
-      </div>
-      <script type="text/javascript">
-
-		  // <![CDATA[
-
-		  var eggTimer = new SWFObject("/timer/e.ggtimer.swf", "eggtimer", "100%", "100%", "9", "#FFFFFF");
-
-		  eggTimer.addParam("wmode", "transparent");
-		  eggTimer.addParam("allowscriptaccess", "always");
-		  eggTimer.addVariable("sequence", "<?php echo $sequence; ?>");
-		  eggTimer.addVariable("error", "<?php echo $error; ?>");
-
-		  eggTimer.write("eggtimer");
-
-		  // ]]>
-
-      </script>
-   </body>
+<script src="/scripts/jquery.min.js" type="text/javascript"></script>
+<script src="/scripts/min/Time.min.js" type="text/javascript"></script>
+<script src="/scripts/min/Egg3.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    Egg.defaultText = "Tabata";
+    Egg.expiredMessage = "Workout Complete";
+    Egg.sequence = [
+        {label:"Push it!', duration: 20},
+        {label:"Rest!', duration: 10},
+        {label:"Push it!', duration: 20},
+        {label:"Rest!', duration: 10},
+        {label:"Push it!', duration: 20},
+        {label:"Rest!', duration: 10},
+        {label:"Push it!', duration: 20},
+        {label:"Rest!', duration: 10},
+        {label:"Push it!', duration: 20},
+        {label:"Rest!', duration: 10},
+        {label:"Push it!', duration: 20},
+        {label:"Rest!', duration: 10},
+        {label:"Push it!', duration: 20},
+        {label:"Rest!', duration: 10},
+        {label:"Push it!', duration: 20},
+        {label:"Rest!', duration: 10}
+    ];
+    Egg.volume = <?php echo $soundVolume; ?>;
+    Egg.canAlert = <?php echo $alertBox; ?>;
+</script>
+</body>
 </html>
 

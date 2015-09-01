@@ -58,13 +58,11 @@ if (isset($_COOKIE["alertBox"])) {
 <script src="/scripts/min/Time.min.js" type="text/javascript"></script>
 <script src="/scripts/min/Egg3.min.js" type="text/javascript"></script>
 <script type="text/javascript">
-    Egg.defaultText = "E.ggtimer";
-    Egg.title = "<? echo $label; ?>";
-    Egg.label = "<? echo $label; ?>";
+    Egg.defaultText = "Pomodoro";
     Egg.expiredMessage = "time expired";
     Egg.sequence = [{label: "Work", duration: 1500}, {label: "Break", duration: 300}];
     Egg.volume = <?php echo $soundVolume; ?>;
-            Egg.canAlert = <?php echo $alertBox; ?>;
+    Egg.canAlert = <?php echo $alertBox; ?>;
 </script>
 </body>
 </html>
