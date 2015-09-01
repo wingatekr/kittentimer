@@ -17,7 +17,7 @@ RewriteRule ^pomodoro/?$ /extra/pomodoro.php
 RewriteRule ^tabata/?$ /extra/tabata.php
 RewriteRule ^pizza/?$ /extra/pizza.php
 RewriteRule ^finalcountdown/?$ /extra/finalcountdown.php
-RewriteRule ^brushteeth/? /timer/timer.php?t=2minutes&l=Be+Thorough
+RewriteRule ^brushteeth/? /timer/htmlTimer3.php?t=2minutes&l=Be+Thorough
 
 #Meta
 RewriteRule ^robots.txt/?$ /pages/robots.txt
