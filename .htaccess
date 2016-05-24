@@ -38,7 +38,8 @@ RewriteRule ^m/([^/\.]+)/?$ /timer/htmlTimer3.php?t=$1
 RewriteRule ^ie/([^/\.]+)/until/(.+)/?$ /timer/timer.php?t=$1&l=$2
 RewriteRule ^ie/([^/\.]+)/?$ /timer/timer.php?t=$1 
 RewriteRule ^([^/\.]+)/until/(.+)/?$ /timer/htmlTimer3.php?t=$1&l=$2
-RewriteRule ^([^/\.]+)/?$ /timer/htmlTimer3.php?t=$1 [L] 
+RewriteRule ^([^/\.]+)/then/(.+)/?$ /timer/htmlTimer3.php?s1=$1&s2=$2
+RewriteRule ^([^/\.]+)/?$ /timer/htmlTimer3.php?t=$1 [L]
 
 
 
