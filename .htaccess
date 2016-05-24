@@ -33,6 +33,7 @@ RewriteRule ^oembed/?$ /oembed/oembed.php
 
 #Timers
 RewriteRule ^m/([^/\.]+)/until/(.+)/?$ /timer/htmlTimer3.php?t=$1&l=$2
+RewriteRule ^m/([^/\.]+)/then/(.+)/?$ /timer/htmlTimer3.php?s1=$1&s2=$2
 RewriteRule ^m/([^/\.]+)/?$ /timer/htmlTimer3.php?t=$1
 RewriteRule ^ie/([^/\.]+)/until/(.+)/?$ /timer/timer.php?t=$1&l=$2
 RewriteRule ^ie/([^/\.]+)/?$ /timer/timer.php?t=$1 

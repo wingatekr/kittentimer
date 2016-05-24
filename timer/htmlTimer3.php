@@ -1,17 +1,30 @@
 <?php
+date_default_timezone_set ("America/New_York");
+
 $error = "none";
 $origTime = $_REQUEST["t"];
 $ztime = $_REQUEST["t"];
 $label = isset($_REQUEST["l"]) ? strip_tags($_REQUEST["l"]) : "";
 
+$seq1 = $_REQUEST["s1"];
+$seq2 = $_REQUEST["s2"];
+
 if (is_numeric($ztime)){
    $ztime .= "seconds";
+}
+
+if (!is_numeric($seq1)) {
+   $seq1 = -1;
+}
+
+if (!is_numeric($seq2)) {
+  $seq2 = -1;
 }
 
 $ztime = str_replace("and", "", $ztime);
 $startTime = time() * 1000;
 $endTime = strtotime($ztime) * 1000;
-if ($endTime == -1000){
+if ($endTime == -1000 && $seq1 == -1 && $seq2 == -1){
    $error = "fail";
    $endTime = $startTime;
 }
@@ -77,9 +90,14 @@ if (isset($_COOKIE["alertBox"])) {
          Egg.defaultText = "E.ggtimer";
          Egg.title = "<? echo $label; ?>";
          Egg.label = "<? echo $label; ?>";
+         <?php if ($seq1 == -1 && $seq2 == -1) : ?>
          Egg.startTime = <?php echo $startTime; ?>;
          Egg.endTime = <?php echo $endTime; ?>;
          Egg.parseError = "<?php echo $error; ?>";
+         <?php else: ?>
+         Egg.expiredMessage = "Sequence expired";
+         Egg.sequence = [{label: "", duration: <? echo $seq1; ?>}, {label: "", duration: <? echo $seq2; ?>}];
+         <?php endif; ?>
          Egg.volume = <?php echo $soundVolume; ?>;
          Egg.canAlert = <?php echo $alertBox; ?>;
       </script>
