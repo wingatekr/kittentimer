@@ -32,14 +32,22 @@ if ($endTime == -1000 && $seq1 == -1 && $seq2 == -1){
 $soundType = "beep";
 $soundVolume = "1";
 $alertBox = "true";
-if (isset($_COOKIE["soundType"])) {
+
+if (isset($_REQUEST["sound"]) && strtolower($_REQUEST["sound"]) == "ring") {
+   $soundType = "ring";
+} else if (isset($_COOKIE["soundType"])) {
    $soundType = $_COOKIE["soundType"];
 }
-if (isset($_COOKIE["soundVolume"])) {
+
+if (isset($_REQUEST["volume"]) && is_numeric($_REQUEST["volume"]) && floatval($_REQUEST["volume"]) <=1 && floatval($_REQUEST["volume"]) >= 0) {
+   $soundVolume = $_REQUEST["volume"];
+} else if (isset($_COOKIE["soundVolume"])) {
    $soundVolume = $_COOKIE["soundVolume"];
 }
 
-if (isset($_COOKIE["alertBox"])) {
+if (isset($_REQUEST["alert"]) && strtolower($_REQUEST["alert"]) == "false") {
+   $alertBox = "false";
+} else if (isset($_COOKIE["alertBox"])) {
    $alertBox = $_COOKIE["alertBox"];
 }
 ?>

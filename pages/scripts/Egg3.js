@@ -2,7 +2,7 @@
 var Egg = {
     name:"EggTimer",
     defaultText:"",
-    expiredMessage:"Time Expired!",
+    expiredMessage:"",
     title:"",
     label:"",
     progress:0,
@@ -44,7 +44,7 @@ var Egg = {
         Egg.totalTime = Egg.endTime - Egg.startTime;
         Egg.endDate = new Date(new Date().getTime() + Egg.totalTime);
         Egg.currDate = new Date();
-        Egg.expiredMessage = Egg.expiredMessage || "Time Expired" + (label ? ": " : "") + label;
+        Egg.expiredMessage = Egg.expiredMessage || "Time Expired" + (label ? ": " : "!") + label;
         Egg.update();
         if (!Egg.ticker) {
             Egg.ticker = setInterval(Egg.update, 1000 / 4);
