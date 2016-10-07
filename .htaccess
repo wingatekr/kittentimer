@@ -2,39 +2,45 @@ AddType text/cache-manifest .manifest
 AddType application/x-font-ttf .ttf
 
 RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
 
 #Home
-RewriteRule ^m/?$ /pages/index.php
-RewriteRule ^ie/?$ /pages/index.php
-RewriteRule ^/?$ /pages/index.php
+RewriteRule ^m/?$ /pages/index.php [L,QSA]
+RewriteRule ^ie/?$ /pages/index.php [L,QSA]
+RewriteRule ^/?$ /pages/index.php [L,QSA]
 
 #Manifest
-RewriteRule ^egg3.manifest/? /pages/egg3.manifest
+RewriteRule ^egg3.manifest/? /pages/egg3.manifest [L]
 
 #Special Timers (fix later)
-RewriteRule ^morning/?$ /extra/morning.php
-RewriteRule ^pomodoro/?$ /extra/pomodoro.php
-RewriteRule ^tabata/?$ /extra/tabata.php
-RewriteRule ^pizza/?$ /extra/pizza.php
-RewriteRule ^finalcountdown/?$ /extra/finalcountdown.php
-RewriteRule ^brushteeth/? /timer/timer.php?t=2minutes&l=Be+Thorough
+RewriteRule ^morning/?$ /extra/morning.php [L]
+RewriteRule ^pomodoro/?$ /extra/pomodoro.php [L]
+RewriteRule ^tabata/?$ /extra/tabata.php [L]
+RewriteRule ^pizza/?$ /extra/pizza.php [L]
+RewriteRule ^finalcountdown/?$ /extra/finalcountdown.php [L]
+RewriteRule ^brushteeth/? /timer/htmlTimer3.php?t=2minutes&l=Be+Thorough [L]
 
 #Meta
-RewriteRule ^robots.txt/?$ /pages/robots.txt
-RewriteRule ^humans.txt/?$ /pages/humans.txt
+RewriteRule ^robots.txt/?$ /pages/robots.txt [L]
+RewriteRule ^humans.txt/?$ /pages/humans.txt [L]
 
 #Site Assets
-RewriteRule ^scripts/(.+)?$ /pages/scripts/$1
-RewriteRule ^styles/(.+)?$ /pages/styles/$1
-RewriteRule ^images/(.+)?$ /pages/images/$1
+RewriteRule ^scripts/(.+)?$ /pages/scripts/$1 [L,QSA]
+RewriteRule ^styles/(.+)?$ /pages/styles/$1 [L,QSA]
+RewriteRule ^images/(.+)?$ /pages/images/$1 [L,QSA]
+
+#Oembed
+RewriteRule ^oembed/?$ /oembed/oembed.php [L]
 
 #Timers
-RewriteRule ^m/([^/\.]+)/until/(.+)/?$ /timer/htmlTimer3.php?t=$1&l=$2
-RewriteRule ^m/([^/\.]+)/?$ /timer/htmlTimer3.php?t=$1
-RewriteRule ^ie/([^/\.]+)/until/(.+)/?$ /timer/timer.php?t=$1&l=$2
-RewriteRule ^ie/([^/\.]+)/?$ /timer/timer.php?t=$1 
-RewriteRule ^([^/\.]+)/until/(.+)/?$ /timer/htmlTimer3.php?t=$1&l=$2
-RewriteRule ^([^/\.]+)/?$ /timer/htmlTimer3.php?t=$1 [L] 
+RewriteRule ^m/([^/\.]+)/until/(.+)/?$ /timer/htmlTimer3.php?t=$1&l=$2 [L,QSA]
+RewriteRule ^m/([^/\.]+)/then/(.+)/?$ /timer/htmlTimer3.php?s1=$1&s2=$2 [L,QSA]
+RewriteRule ^m/([^/\.]+)/?$ /timer/htmlTimer3.php?t=$1 [L,QSA]
+RewriteRule ^ie/([^/\.]+)/until/(.+)/?$ /timer/htmlTimer3.php?t=$1&l=$2 [L,QSA]
+RewriteRule ^ie/([^/\.]+)/?$ /timer/htmlTimer3.php?s1=$1&s2=$2 [L,QSA]
+RewriteRule ^([^/\.]+)/until/(.+)/?$ /timer/htmlTimer3.php?t=$1&l=$2 [L,QSA]
+RewriteRule ^([^/\.]+)/then/(.+)/?$ /timer/htmlTimer3.php?s1=$1&s2=$2 [L,QSA]
+RewriteRule ^([^/\.]+)/?$ /timer/htmlTimer3.php?t=$1 [L,QSA]
 
 
 
