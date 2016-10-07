@@ -1,3 +1,5 @@
+# And I shall call you kitten-timer, and you shall be the least intimidating timer ever! (one day...)
+
 E.ggTimer
 =========
 
@@ -7,10 +9,4 @@ Created by:
 
 -  David LeMieux @lemieuxster
 -  Ben Lew       @n0s0ap
-
-
-Flash
-------
-
-The Flash source code has not been included here because any progress should be made on the JavaScript code. 
 
